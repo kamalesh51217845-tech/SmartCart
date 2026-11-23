@@ -106,14 +106,14 @@ REST_FRAMEWORK = {
 
 
 # --------------------------------------------------
-# DATABASE - MYSQL
+# DATABASE - MYSQL / TIDB CLOUD
 # --------------------------------------------------
-
 
 DB_SSL_CA = os.environ.get("DB_SSL_CA")
 
 DB_OPTIONS = {
     "charset": "utf8mb4",
+    "ssl_mode": "REQUIRED",
 }
 
 if DB_SSL_CA:
