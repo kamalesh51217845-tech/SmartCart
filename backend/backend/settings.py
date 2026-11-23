@@ -109,6 +109,18 @@ REST_FRAMEWORK = {
 # DATABASE - MYSQL
 # --------------------------------------------------
 
+
+DB_SSL_CA = os.environ.get("DB_SSL_CA")
+
+DB_OPTIONS = {
+    "charset": "utf8mb4",
+}
+
+if DB_SSL_CA:
+    DB_OPTIONS["ssl"] = {
+        "ca": DB_SSL_CA,
+    }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
@@ -117,9 +129,7 @@ DATABASES = {
         "PASSWORD": os.environ.get("DB_PASSWORD", ""),
         "HOST": os.environ.get("DB_HOST", "localhost"),
         "PORT": os.environ.get("DB_PORT", "3306"),
-        "OPTIONS": {
-            "charset": "utf8mb4",
-        },
+        "OPTIONS": DB_OPTIONS,
     }
 }
 

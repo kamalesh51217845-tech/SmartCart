@@ -14,3 +14,15 @@ dist/
 
 # Editor
 .vscode/
+
+# Database certificates
+backend/certs/
+
+# Environment variables
+.env
+.env.*
+
+# Django files
+__pycache__/
+*.py[cod]
+staticfiles/
